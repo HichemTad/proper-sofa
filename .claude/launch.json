@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Static Server (npx serve)",
+      "runtimeExecutable": "cmd",
+      "runtimeArgs": ["/c", "C:\\Users\\Hichem\\Desktop\\Proper Sofa\\serve.bat"],
+      "port": 3000
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "Bash(where node:*)",
+      "Bash(where python3:*)",
+      "Bash(where py:*)",
+      "Bash(where python3.exe)",
+      "Bash(\"C:/Users/Hichem/AppData/Local/Microsoft/WindowsApps/python3.exe\" --version)",
+      "Bash(where node.exe)",
+      "Read(//c/Program Files/**)",
+      "Read(//c/Users/Hichem/Desktop/Proper Sofa/$APPDATA/npm/**)",
+      "Read(//c/Users/Hichem/Desktop/Proper Sofa/$LOCALAPPDATA/Programs/**)",
+      "Bash(where php:*)",
+      "Bash(where ruby:*)",
+      "Bash(where dotnet:*)",
+      "Bash(where java:*)",
+      "Bash(dotnet tool:*)",
+      "Bash(dotnet --version)",
+      "Bash(\"C:/Program Files/dotnet/dotnet.exe\" --version)",
+      "Bash(\"C:/Program Files/dotnet/dotnet.exe\" tool list -g)",
+      "Bash(powershell -ExecutionPolicy Bypass -Command \"& { $listener = New-Object System.Net.HttpListener; $listener.Prefixes.Add\\(''http://localhost:3000/''\\); try { $listener.Start\\(\\); Write-Host ''OK''; $listener.Stop\\(\\) } catch { Write-Host $_.Exception.Message } }\")",
+      "Bash(powershell -Command \"Get-Process -Name powershell | Stop-Process -Force\")",
+      "Bash(powershell -Command \"Get-Process powershell -ErrorAction SilentlyContinue | Stop-Process -Force\")",
+      "Bash(find C:/Users/Hichem/AppData/Local/Temp -name *.png -newer 'C:/Users/Hichem/Desktop/Proper Sofa/index.html')",
+      "Bash(find C:/Users/Hichem/AppData/Roaming -name *.png -newer 'C:/Users/Hichem/Desktop/Proper Sofa/index.html')",
+      "Bash(find C:/Users/Hichem -name *.png -newer 'C:/Users/Hichem/Desktop/PROPER SOFA.svg')",
+      "Bash(find C:/Users/Hichem/.claude -name *.png)",
+      "Bash(find C:/Users/Hichem/AppData -name *.png -newer 'C:/Users/Hichem/Desktop/Proper Sofa/index.html')",
+      "Bash(find C:/Users/Hichem -name *.png)",
+      "mcp__bb872690-9c65-4d76-9d60-a9911da209cd__get_design_context"
+    ]
+  }
+}

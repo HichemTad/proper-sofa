@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Professionele reiniging van uw meubelstoffering in Brussel en heel België. Gespecialiseerde technici, ecologische producten, gegarandeerde resultaten." />
+  <title>Proper Sofa – Meubelreiniging in Brussel</title>
+  <link rel="canonical" href="https://propersofa.be/nl/">
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://propersofa.be/nl/">
+  <meta property="og:title"       content="Proper Sofa – Meubelreiniging in Brussel">
+  <meta property="og:description" content="Professionele reiniging van uw meubelstoffering in Brussel en heel België. Gespecialiseerde technici, ecologische producten, gegarandeerde resultaten.">
+  <meta name="twitter:card"       content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Proper Sofa",
+    "description": "Professionele reiniging van canapés, fauteuils, stoelen en tapijten in Brussel en heel België.",
+    "url": "https://propersofa.be",
+    "telephone": "+3200000000",
+    "email": "info@propersofa.be",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Brussel",
+      "addressCountry": "BE"
+    },
+    "openingHours": "Mo-Sa 08:00-19:00",
+    "areaServed": "BE",
+    "priceRange": "€"
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,500;0,600;0,700;1,700&family=Roboto:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+    :root {
+      --surface:                #f7f9ff;
+      --surface-variant:        #e1e2ec;
+      --surface-container-low:  #f1f4f9;
+      --surface-container:      #ebeef3;
+      --surface-container-high: #e6e8ee;
+      --on-surface:             #181c20;
+      --on-surface-variant:     #44464f;
+      --primary:                #485d92;
+      --on-primary:             #ffffff;
+      --primary-container:      #dae2ff;
+      --on-primary-container:   #2f4578;
+      --secondary:              #585e71;
+      --secondary-container:    #dce2f9;
+      --on-secondary-container: #404659;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    /* Anchor offset — sections sit under the fixed nav */
+    #apropos, #tarifs, #zone { scroll-margin-top: 65px; }
+
+    body {
+      font-family: 'Roboto', system-ui, sans-serif;
+      background: var(--surface);
+      color: var(--on-surface);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ─────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: 65px;
+      display: flex;
+      align-items: center;
+      padding: 0 clamp(1rem, 4vw, 5rem);
+      background: rgba(247, 249, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    /* Logo — occupe tout l'espace à gauche */
+    .nav-logo {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    .nav-logo img { height: 44px; width: auto; }
+
+    /* Liens — largeur naturelle, centrés automatiquement */
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--on-primary-container);
+      font-size: 1rem;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: opacity .2s;
+    }
+    .nav-links a:hover { opacity: .65; }
+
+    /* Droite — occupe tout l'espace à droite, aligne le CTA à droite */
+    .nav-right {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: .75rem;
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--primary);
+      color: var(--on-primary);
+      padding: 8px 16px;
+      border-radius: 12px;
+      font-size: .875rem;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: opacity .2s;
+    }
+    .nav-cta:hover { opacity: .85; }
+
+    /* Burger — caché sur desktop */
+    .nav-burger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      color: var(--on-surface);
+    }
+    .nav-burger svg { display: block; width: 26px; height: 26px; }
+
+    /* Menu mobile */
+    .nav-mobile {
+      display: none;
+      position: fixed;
+      top: 65px; left: 0; right: 0;
+      z-index: 99;
+      background: rgba(247, 249, 255, 0.98);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid var(--surface-container);
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 2rem 1.5rem 2.5rem;
+    }
+    .nav-mobile.open { display: flex; }
+
+    .nav-mobile a {
+      color: var(--on-primary-container);
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: opacity .2s;
+    }
+    .nav-mobile a:hover { opacity: .65; }
+
+    .nav-mobile .nav-cta {
+      color: var(--on-primary);
+      padding: 12px 28px;
+      font-size: 1rem;
+      margin-top: .5rem;
+    }
+
+    /* ── LANG SWITCHER ───────────────────────────── */
+    .lang-switcher { position: relative; }
+    .lang-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--surface-container);
+      border: none;
+      border-radius: 8px;
+      padding: 6px 10px;
+      font-size: .8rem;
+      font-weight: 700;
+      color: var(--on-surface);
+      cursor: pointer;
+      font-family: 'Roboto', sans-serif;
+      transition: background .15s;
+    }
+    .lang-btn:hover { background: var(--surface-variant); }
+    .lang-btn svg { flex-shrink: 0; transition: transform .2s; }
+    .lang-btn[aria-expanded="true"] svg { transform: rotate(180deg); }
+    .lang-dropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0,0,0,.14);
+      padding: 6px;
+      min-width: 155px;
+      z-index: 200;
+    }
+    .lang-dropdown.open { display: block; }
+    .lang-option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--on-surface);
+      font-size: .875rem;
+      font-weight: 600;
+      transition: background .15s;
+    }
+    .lang-option:hover { background: var(--surface-container-low); }
+    .lang-option.active { color: var(--primary); }
+
+    /* ── FOCUS VISIBLE ───────────────────────────── */
+    :focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+    .nav-cta:focus-visible,
+    .btn-primary:focus-visible,
+    .btn-secondary:focus-visible,
+    .btn-white:focus-visible,
+    .tarif-btn:focus-visible { border-radius: 12px; }
+
+    /* ── HERO ─────────────────────────────────────── */
+    .hero {
+      height: 100dvh;
+      min-height: 580px;
+      background: var(--surface);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 72px clamp(1rem, 4vw, 3rem) 1.5rem;
+      gap: 1rem;
+    }
+
+    /* Sofa slider */
+    .sofa-wrapper {
+      width: 100%;
+      max-width: 850px;
+      max-height: min(50vh, 420px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .sofa-container {
+      position: relative;
+      cursor: ew-resize;
+      overflow: hidden;
+      width: 100%;
+      flex: 1 1 auto;
+      min-height: 0;
+      border-radius: 16px;
+    }
+
+    .sofa-img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+    }
+
+    #sofa-clean {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      clip-path: inset(0 0 0 50%);
+    }
+
+    .sofa-divider {
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 50%;
+      width: 3px;
+      background: rgba(255,255,255,.9);
+      transform: translateX(-50%);
+      pointer-events: none;
+      box-shadow: 0 0 12px rgba(0,0,0,.4);
+    }
+
+    .sofa-handle {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 46px; height: 46px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 18px rgba(0,0,0,.35);
+    }
+
+    /* VOOR/NA pills below slider */
+    .sofa-labels-row {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 415px;
+    }
+
+    .label-pill {
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+      font-family: 'Fira Sans', sans-serif;
+      font-style: italic;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 6px 16px;
+      border-radius: 20px;
+    }
+
+    /* Hero text block */
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      text-align: center;
+      max-width: 693px;
+    }
+
+    .hero-text h1 {
+      font-family: 'Fira Sans', sans-serif;
+      font-weight: 500;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      color: var(--on-surface);
+      line-height: 1.2;
+    }
+
+    .hero-text p {
+      font-size: clamp(0.9rem, 1.6vw, 1.2rem);
+      color: var(--on-surface-variant);
+      font-weight: 400;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--on-primary);
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: opacity .2s;
+    }
+    .btn-primary:hover { opacity: .85; }
+    .btn-primary svg, .btn-primary img { width: 20px; height: 20px; flex-shrink: 0; }
+
+    .btn-secondary {
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      transition: opacity .2s;
+    }
+    .btn-secondary:hover { opacity: .85; }
+
+    /* ── SECTION COMMONS ──────────────────────────── */
+    .section-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-header h2 {
+      font-family: 'Fira Sans', sans-serif;
+      font-weight: 500;
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      margin-bottom: 1.5rem;
+    }
+
+    .section-header p {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--on-surface-variant);
+      max-width: 839px;
+      margin: 0 auto;
+      line-height: 1.55;
+    }
+
+    .section-header p strong { font-weight: 900; }
+
+    /* ── À PROPOS ─────────────────────────────────── */
+    #apropos {
+      background: #FAF8FF;
+      padding: 8rem clamp(1.5rem, 6vw, 5rem);
+    }
+
+    #apropos .section-header h2 { color: var(--on-surface-variant); }
+
+    .services-photos {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .service-photo-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      flex: 1;
+      min-width: 240px;
+      max-width: 332px;
+    }
+
+    /* .offset vertical position now handled by transform for smooth hover */
+
+    .service-photo-img {
+      width: 100%;
+      height: 335px;
+      border-radius: 40px;
+      overflow: hidden;
+    }
+
+    .service-photo-img img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center 30%;
+      transform: scale(1.12);
+      transform-origin: center center;
+      will-change: transform;
+    }
+
+    .service-photo-label {
+      font-family: 'Fira Sans', sans-serif;
+      font-weight: 600;
+      font-size: 2rem;
+      color: var(--on-surface-variant);
+    }
+
+    /* ── QUINCONCE + REVEAL ──────────────────── */
+    .service-photo-card {
+      transition: transform .4s cubic-bezier(.22,1,.36,1);
+    }
+    /* Carte du milieu : décalée de 114px + 36px pour que le reveal parte du bon point */
+    .service-photo-card.offset { transform: translateY(150px); }
+    /* Une fois le reveal terminé, on atterrit à la position quinconce */
+    .service-photo-card.offset.visible { transform: translateY(114px); }
+    /* Padding bas pour que la carte décalée ne soit pas rognée */
+    .services-photos { padding-bottom: 130px; }
+
+    /* ── HERO ENTRANCE ───────────────────────── */
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .sofa-wrapper  { animation: fade-up .9s cubic-bezier(.22,1,.36,1) .05s both; }
+    .hero-text h1  { animation: fade-up .8s cubic-bezier(.22,1,.36,1) .2s  both; }
+    .hero-text p   { animation: fade-up .8s cubic-bezier(.22,1,.36,1) .35s both; }
+    .hero-actions  { animation: fade-up .8s cubic-bezier(.22,1,.36,1) .48s both; }
+
+    /* ── SCROLL REVEAL ───────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity .75s cubic-bezier(.22,1,.36,1),
+                  transform .75s cubic-bezier(.22,1,.36,1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: .1s; }
+    .reveal-d2 { transition-delay: .18s; }
+    .reveal-d3 { transition-delay: .26s; }
+    .reveal-d4 { transition-delay: .34s; }
+
+    /* ── TARIFS ───────────────────────────────────── */
+    #tarifs {
+      background: var(--surface);
+      padding: 8rem clamp(1.5rem, 6vw, 5rem);
+    }
+
+    #tarifs .section-header h2 { color: var(--on-surface); }
+    #tarifs .section-header p strong { color: var(--on-surface); }
+
+    .tarif-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2.25rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .tarif-card {
+      background: var(--surface-container-low);
+      border-radius: 24px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .tarif-card-content {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+    }
+
+    .tarif-icon img { width: 36px; height: 36px; display: block; }
+    .check img { width: 20px; height: 20px; }
+
+    .tarif-title-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .tarif-category {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--secondary);
+    }
+
+    .tarif-price {
+      font-weight: 800;
+      font-size: 2rem;
+      color: var(--on-surface);
+      line-height: 1.2;
+    }
+
+    .tarif-features {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .tarif-feature {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--on-surface-variant);
+    }
+
+    .check {
+      width: 24px; height: 24px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+
+    .tarif-btn {
+      background: var(--secondary-container);
+      color: var(--on-secondary-container);
+      font-weight: 800;
+      font-size: 1rem;
+      font-family: 'Roboto', sans-serif;
+      text-align: center;
+      padding: 12px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      display: block;
+      width: 100%;
+      line-height: 24px;
+      position: relative;
+      overflow: hidden;
+      transition: opacity .2s, transform .18s cubic-bezier(.34,1.56,.64,1), background .25s;
+    }
+    .tarif-btn:hover { opacity: .85; }
+    .tarif-btn:active { transform: scale(.93); }
+
+    @keyframes ripple-expand {
+      from { transform: scale(0); opacity: .7; }
+      to   { transform: scale(3.8); opacity: 0; }
+    }
+    .tarif-btn .btn-ripple {
+      position: absolute;
+      border-radius: 50%;
+      background: var(--primary);
+      width: 100%; aspect-ratio: 1;
+      top: 50%; left: 50%;
+      translate: -50% -50%;
+      animation: ripple-expand .55s cubic-bezier(.2,.6,.4,1) forwards;
+      pointer-events: none;
+    }
+    @keyframes btn-flash {
+      0%   { background: var(--secondary-container); }
+      25%  { background: var(--primary-container); }
+      100% { background: var(--secondary-container); }
+    }
+    .tarif-btn.flashing { animation: btn-flash .45s ease forwards; }
+
+    /* ── CART SLOT (icon ↔ count swap) ──────────── */
+    .cta-slot {
+      position: relative;
+      width: 16px; height: 16px;
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cta-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .38s cubic-bezier(.34,1.56,.64,1), opacity .22s ease;
+    }
+    .cta-icon svg, .cta-icon img { width: 16px; height: 16px; display: block; }
+    .cta-count {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%) scale(0) rotate(-200deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--primary);
+      border-radius: 8px;
+      min-width: 16px; height: 16px;
+      padding: 0 4px;
+      font-size: .68rem;
+      font-weight: 800;
+      line-height: 0;
+      white-space: nowrap;
+      opacity: 0;
+      transition: transform .42s cubic-bezier(.34,1.56,.64,1), opacity .22s ease;
+      pointer-events: none;
+    }
+    .nav-cta.has-cart .cta-icon {
+      opacity: 0;
+      transform: scale(0) rotate(200deg);
+    }
+    .nav-cta.has-cart .cta-count {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    }
+    @keyframes count-pop {
+      0%   { transform: translate(-50%, -50%) scale(1)    rotate(0deg); }
+      35%  { transform: translate(-50%, -50%) scale(1.55) rotate(0deg); }
+      65%  { transform: translate(-50%, -50%) scale(.85)  rotate(0deg); }
+      100% { transform: translate(-50%, -50%) scale(1)    rotate(0deg); }
+    }
+    .cta-count.pop { animation: count-pop .42s cubic-bezier(.36,.07,.19,.97); }
+
+    @keyframes cta-bump {
+      0%   { transform: scale(1); }
+      30%  { transform: scale(1.08); }
+      65%  { transform: scale(.96); }
+      100% { transform: scale(1); }
+    }
+    .nav-cta.cta-bump { animation: cta-bump .38s cubic-bezier(.36,.07,.19,.97); }
+
+    .tarif-qty {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--secondary-container);
+      border-radius: 12px;
+      padding: 4px;
+    }
+
+    .qty-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      width: 40px; height: 40px;
+      border-radius: 8px;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--on-secondary-container);
+      display: flex;
+      align-items: center; justify-content: center;
+      transition: background .15s;
+    }
+    .qty-btn:hover { background: rgba(0,0,0,.1); }
+
+    .qty-count {
+      font-weight: 800; font-size: 1.1rem;
+      min-width: 28px; text-align: center;
+      color: var(--on-secondary-container);
+    }
+
+    /* ── ZONE ─────────────────────────────────────── */
+    #zone {
+      background: var(--surface);
+      padding: 8rem clamp(1.5rem, 6vw, 5rem);
+    }
+
+    #zone .section-header h2 { color: var(--on-surface-variant); }
+
+    .map-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .map-circle {
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      border: 10px solid var(--surface-container);
+      overflow: hidden;
+    }
+
+    .map-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+
+    /* ── FOOTER ───────────────────────────────────── */
+    footer {
+      background: var(--secondary);
+      padding: 1.25rem clamp(1.5rem, 6vw, 5rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo { text-decoration: none; }
+    .footer-logo img {
+      height: 49px;
+      width: auto;
+      filter: brightness(0) invert(1);
+    }
+
+    footer p {
+      color: rgba(255,255,255,.55);
+      font-size: .85rem;
+    }
+
+    /* ── RESPONSIVE ───────────────────────────────── */
+    @media (max-width: 768px) {
+      .nav-links          { display: none; }
+      .nav-right .nav-cta { display: none; }
+      .nav-burger         { display: flex; }
+      .service-photo-card.offset,
+      .service-photo-card.offset.visible { transform: translateY(0); }
+      .services-photos { padding-bottom: 0; }
+      .map-circle { width: 280px; height: 280px; }
+      footer { justify-content: center; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav aria-label="Hoofdnavigatie">
+  <a href="index-nl.html" class="nav-logo" aria-label="Proper Sofa – Startpagina">
+    <img src="asset/LOGO.svg" alt="Proper Sofa" width="auto" height="44">
+  </a>
+
+  <ul class="nav-links" role="list">
+    <li><a href="#apropos">Diensten</a></li>
+    <li><a href="#tarifs">Tarieven</a></li>
+    <li><a href="#zone">Werkingsgebied</a></li>
+  </ul>
+
+  <div class="nav-right">
+    <div class="lang-switcher" id="lang-switcher">
+      <button class="lang-btn" id="lang-btn" aria-expanded="false" aria-haspopup="listbox" aria-label="Taal kiezen">
+        <span>NL</span>
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+          <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="lang-dropdown" id="lang-dropdown" role="listbox" aria-label="Taal">
+        <a class="lang-option" href="index.html" role="option" aria-selected="false">🇫🇷 Français</a>
+        <a class="lang-option active" href="index-nl.html" role="option" aria-selected="true">🇳🇱 Nederlands</a>
+      </div>
+    </div>
+    <a href="booking-nl.html" class="nav-cta" id="nav-cta-desktop" aria-label="Een reiniging reserveren">
+      <span class="cta-slot" aria-hidden="true">
+        <span class="cta-icon">
+          <img src="asset/calendar.svg" width="16" height="16" alt="" aria-hidden="true">
+        </span>
+        <span class="cta-count" id="count-cta-desktop" aria-live="polite" aria-atomic="true"></span>
+      </span>
+      Reserveren
+    </a>
+    <button class="nav-burger" id="nav-burger" aria-label="Menu openen" aria-expanded="false" aria-controls="nav-mobile">
+      <svg id="burger-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+        <line x1="3" y1="6"  x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+      <svg id="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" style="display:none" aria-hidden="true">
+        <line x1="4" y1="4" x2="20" y2="20"/>
+        <line x1="20" y1="4" x2="4" y2="20"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<!-- Menu mobile -->
+<div class="nav-mobile" id="nav-mobile" role="dialog" aria-label="Navigatiemenu" aria-modal="false">
+  <a href="#apropos">Diensten</a>
+  <a href="#tarifs">Tarieven</a>
+  <a href="#zone">Werkingsgebied</a>
+  <a href="booking-nl.html" class="nav-cta" id="nav-cta-mobile" aria-label="Een reiniging reserveren">
+    <span class="cta-slot" aria-hidden="true">
+      <span class="cta-icon">
+        <img src="asset/calendar.svg" width="16" height="16" alt="" aria-hidden="true">
+      </span>
+      <span class="cta-count" id="count-cta-mobile" aria-live="polite" aria-atomic="true"></span>
+    </span>
+    Reserveren
+  </a>
+</div>
+
+<!-- MAIN CONTENT -->
+<main id="main-content">
+
+<!-- HERO -->
+<section class="hero" aria-label="Presentatie">
+  <div class="sofa-wrapper">
+    <div class="sofa-container" id="sofa-container">
+      <!-- Dirty sofa — base layer -->
+      <img class="sofa-img" src="asset/sofa-dirty.png" alt="Sofa voor reiniging" draggable="false">
+      <!-- Clean sofa — clipped to right of slider -->
+      <img id="sofa-clean" src="asset/sofa-clean.png" alt="Sofa na reiniging" draggable="false">
+
+      <div class="sofa-divider" id="sofa-divider">
+        <div class="sofa-handle">
+          <svg width="26" height="18" viewBox="0 0 26 18" fill="none">
+            <path d="M8 9H1M1 9L4.5 5.5M1 9L4.5 12.5" stroke="#485d92" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M18 9H25M25 9L21.5 5.5M25 9L21.5 12.5" stroke="#485d92" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="sofa-labels-row">
+      <span class="label-pill">VOOR</span>
+      <span class="label-pill">NA</span>
+    </div>
+  </div>
+
+  <div class="hero-text">
+    <h1>Reiniging van meubelstoffering</h1>
+    <p>Uw meubelen schoon en fris — geen enkele vlek weerstaat onze specialisten.</p>
+    <div class="hero-actions">
+      <a href="booking-nl.html" class="btn-primary">
+        <img src="asset/calendar.svg" width="20" height="20" alt="" aria-hidden="true">
+        Reserveren
+      </a>
+      <a href="#apropos" class="btn-secondary">Onze diensten</a>
+    </div>
+  </div>
+</section>
+
+<!-- DIENSTEN -->
+<section id="apropos" aria-labelledby="heading-apropos">
+  <div class="section-header reveal">
+    <h2 id="heading-apropos">Onze diensten</h2>
+    <p>Ons team van specialisten is actief <strong>overal in België</strong> om uw meubelen een nieuwe glans te geven. Ecologische producten, innovatieve methodes, gegarandeerde resultaten.</p>
+  </div>
+
+  <div class="services-photos">
+    <div class="service-photo-card reveal reveal-d1">
+      <div class="service-photo-img">
+        <img src="asset/Canapé nettoyage.png" alt="Sofareiniging door een Proper Sofa-technicus" loading="lazy">
+      </div>
+      <span class="service-photo-label">Sofa's</span>
+    </div>
+    <div class="service-photo-card offset reveal reveal-d2">
+      <div class="service-photo-img">
+        <img src="asset/Tapis nettoyage.png" alt="Grondige tapijtreiniging" loading="lazy">
+      </div>
+      <span class="service-photo-label">Tapijten</span>
+    </div>
+    <div class="service-photo-card reveal reveal-d3">
+      <div class="service-photo-img">
+        <img src="asset/Chaise nettoyage.png" alt="Stoelreiniging door een specialist" loading="lazy">
+      </div>
+      <span class="service-photo-label">Stoelen</span>
+    </div>
+  </div>
+</section>
+
+<!-- TARIEVEN -->
+<section id="tarifs" aria-labelledby="heading-tarifs">
+  <div class="section-header reveal">
+    <h2 id="heading-tarifs">Tarieven</h2>
+    <p>Heldere prijzen, zonder onaangename verrassingen. Elke prestatie omvat voorbehandeling, grondige reiniging en vlekkenbehandeling. <strong>Vanaf 15&nbsp;€.</strong></p>
+  </div>
+
+  <div class="tarif-grid">
+    <!-- Stoel -->
+    <div class="tarif-card reveal reveal-d1">
+      <div class="tarif-card-content">
+        <div class="tarif-icon">
+          <img src="asset/Chaise.svg" alt="Stoel">
+        </div>
+        <div class="tarif-title-group">
+          <span class="tarif-category">Stoel</span>
+          <span class="tarif-price">15€</span>
+        </div>
+        <div class="tarif-features">
+          <div class="tarif-feature"><span class="check" aria-hidden="true"><img src="asset/Check.svg" alt=""></span>Voorbehandeling</div>
+          <div class="tarif-feature"><span class="check" aria-hidden="true"><img src="asset/Check.svg" alt=""></span>Grondige reiniging</div>
+          <div class="tarif-feature"><span class="check" aria-hidden="true"><img src="asset/Check.svg" alt=""></span>Vlekkenbehandeling</div>
+          <div class="tarif-feature"><span class="check" aria-hidden="true"><img src="asset/Check.svg" alt=""></span>Duurzame resultaten</div>
+        </div>
+      </div>
+      <button class="tarif-btn" onclick="addToCart('chaise')" aria-label="Toevoegen aan winkelwagen">Toevoegen</button>
+      <div class="tarif-qty" id="qty-chaise" role="group" aria-label="Aantal stoelen">
+        <button class="qty-btn" onclick="changeQty('chaise',-1)" aria-label="Verwijderen">−</button>
+        <span class="qty-count" id="count-chaise" aria-live="polite">1</span>
+        <button class="qty-btn" onclick="changeQty('chaise',1)" aria-label="Toevoegen">+</button>
+      </div>
+    </div>
+
+    <!-- Fauteuil -->
+    <div class="tarif-card reveal reveal-d2">
+      <div class="tarif-card-content">
+        <div class="tarif-icon">
+          <img src="asset/Fauteuil.svg" alt="Fauteuil">
+        </div>
+        <div class="tarif-title-group">
+          <span class="tarif-category">Fauteuil</span>
+          <span class="tarif-price">25€</span>
+        </div>
+        <div class="tarif-features">
+          <div class="tarif-feature"><span class="check" aria-hidden="true"><img src="asset/Check.svg" alt=""></span>Voorbehandeling</div>
+          <div class="tarif-feature"><span class="check" aria-hidden="true"><img src="asset/Check.svg" alt=""></span>Grondige reiniging</div>
+          <div class="tarif-feature"><span class="check" aria-hidden="true"><img src="asset/Check.svg" alt=""></span>Vlekkenbehandeling</div>
+          <div class="tarif-feature"><span class="check" aria-hidden="true"><img src="asset/Check.svg" alt=""></span>Duurzame resultaten</div>
+        </div>
+      </div>
+      <button class="tarif-btn" onclick="addToCart('fauteuil')" aria-label="Toevoegen aan winkelwagen">Toevoegen</button>
+      <div class="tarif-qty" id="qty-fauteuil" role="group" aria-label="Aantal fauteuils">
+        <button class="qty-btn" onclick="changeQty('fauteuil',-1)" aria-label="Verwijderen">−</button>
+        <span class="qty-count" id="count-fauteuil" aria-live="polite">1</span>
+        <button class="qty-btn" onclick="changeQty('fauteuil',1)" aria-label="Toevoegen">+</button>
+      </div>
+    </div>
+
+    <!-- Tapijt -->
+    <div class="tarif-card reveal reveal-d3">
+      <div class="tarif-card-content">
+        <div class="tarif-icon">
+          <img src="asset/Tapis.svg" alt="Tapijt">
+        </div>
+        <div class="tarif-title-group">
+          <span class="tarif-category">Tapijt</span>
+          <span class="tarif-price">40€</span>
+        </div>
+        <div class="tarif-features">
+          <div class="tarif-feature"><span class="check" aria-hidden="true"><img src="asset/Check.svg" alt=""></span>Voorbehandeling</div>
+          <div class="tarif-feature"><span class="check" aria-hidden="true"><img src="asset/Check.svg" alt=""></span>Grondige reiniging</div>
+          <div class="tarif-feature"><span class="check" aria-hidden="true"><img src="asset/Check.svg" alt=""></span>Vlekkenbehandeling</div>
+          <div class="tarif-feature"><span class="check" aria-hidden="true"><img src="asset/Check.svg" alt=""></span>Duurzame resultaten</div>
+        </div>
+      </div>
+      <button class="tarif-btn" onclick="addToCart('tapis')" aria-label="Toevoegen aan winkelwagen">Toevoegen</button>
+      <div class="tarif-qty" id="qty-tapis" role="group" aria-label="Aantal tapijten">
+        <button class="qty-btn" onclick="changeQty('tapis',-1)" aria-label="Verwijderen">−</button>
+        <span class="qty-count" id="count-tapis" aria-live="polite">1</span>
+        <button class="qty-btn" onclick="changeQty('tapis',1)" aria-label="Toevoegen">+</button>
+      </div>
+    </div>
+
+    <!-- Sofa -->
+    <div class="tarif-card reveal reveal-d4">
+      <div class="tarif-card-content">
+        <div class="tarif-icon">
+          <img src="asset/Canapé.svg" alt="Sofa">
+        </div>
+        <div class="tarif-title-group">
+          <span class="tarif-category">Sofa</span>
+          <span class="tarif-price">50€</span>
+        </div>
+        <div class="tarif-features">
+          <div class="tarif-feature"><span class="check" aria-hidden="true"><img src="asset/Check.svg" alt=""></span>Voorbehandeling</div>
+          <div class="tarif-feature"><span class="check" aria-hidden="true"><img src="asset/Check.svg" alt=""></span>Grondige reiniging</div>
+          <div class="tarif-feature"><span class="check" aria-hidden="true"><img src="asset/Check.svg" alt=""></span>Vlekkenbehandeling</div>
+          <div class="tarif-feature"><span class="check" aria-hidden="true"><img src="asset/Check.svg" alt=""></span>Duurzame resultaten</div>
+        </div>
+      </div>
+      <button class="tarif-btn" onclick="addToCart('canape')" aria-label="Toevoegen aan winkelwagen">Toevoegen</button>
+      <div class="tarif-qty" id="qty-canape" role="group" aria-label="Aantal sofa's">
+        <button class="qty-btn" onclick="changeQty('canape',-1)" aria-label="Verwijderen">−</button>
+        <span class="qty-count" id="count-canape" aria-live="polite">1</span>
+        <button class="qty-btn" onclick="changeQty('canape',1)" aria-label="Toevoegen">+</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WERKINGSGEBIED -->
+<section id="zone" aria-labelledby="heading-zone">
+  <div class="section-header reveal">
+    <h2 id="heading-zone">Werkingsgebied</h2>
+    <p>Gevestigd in <strong>Brussel</strong>, actief in heel België. Verplaatsing inbegrepen tot 30&nbsp;km. Daarboven wordt een kilometertoeslag aangerekend.</p>
+  </div>
+
+  <div class="map-container reveal reveal-d1">
+    <div class="map-circle">
+      <img src="https://www.figma.com/api/mcp/asset/664002a4-0576-46ed-96fa-2982911e16f9" alt="Kaart België – Brussel" loading="lazy">
+    </div>
+  </div>
+</section>
+
+
+</main><!-- /.main-content -->
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="footer-logo">
+    <img src="asset/LOGO.svg" alt="Proper Sofa">
+  </a>
+  <p>&copy; 2026 Proper Sofa · Reiniging van meubelstoffering · Brussel, België</p>
+</footer>
+
+<script>
+/* ── BURGER ─────────────────────────────────── */
+(function () {
+  var burger     = document.getElementById('nav-burger');
+  var menu       = document.getElementById('nav-mobile');
+  var burgerIcon = document.getElementById('burger-icon');
+  var closeIcon  = document.getElementById('close-icon');
+
+  function closeMenu() {
+    menu.classList.remove('open');
+    burgerIcon.style.display = '';
+    closeIcon.style.display  = 'none';
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-label', 'Menu openen');
+  }
+
+  burger.addEventListener('click', function () {
+    var isOpen = menu.classList.toggle('open');
+    burgerIcon.style.display = isOpen ? 'none' : '';
+    closeIcon.style.display  = isOpen ? ''     : 'none';
+    burger.setAttribute('aria-expanded', String(isOpen));
+    burger.setAttribute('aria-label', isOpen ? 'Menu sluiten' : 'Menu openen');
+  });
+
+  menu.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', closeMenu);
+  });
+})();
+
+/* ── LANG SWITCHER ───────────────────────────── */
+(function () {
+  var btn = document.getElementById('lang-btn');
+  var dd  = document.getElementById('lang-dropdown');
+  if (!btn) return;
+  btn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var open = dd.classList.toggle('open');
+    btn.setAttribute('aria-expanded', String(open));
+  });
+  document.addEventListener('click', function () {
+    dd.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') { dd.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
+  });
+})();
+
+/* ── SLIDER ─────────────────────────────────── */
+(function () {
+  var container = document.getElementById('sofa-container');
+  var cleanImg  = document.getElementById('sofa-clean');
+  var divider   = document.getElementById('sofa-divider');
+  if (!container) return;
+
+  var dragging = false;
+  var rect;
+
+  function getPct(clientX) {
+    var p = (clientX - rect.left) / rect.width * 100;
+    return Math.max(2, Math.min(98, p));
+  }
+
+  function move(p) {
+    cleanImg.style.clipPath = 'inset(0 0 0 ' + p + '%)';
+    divider.style.left = p + '%';
+  }
+
+  function stopDrag() {
+    if (!dragging) return;
+    dragging = false;
+    window.removeEventListener('touchmove', onTouchMove);
+  }
+
+  function onTouchMove(e) {
+    move(getPct(e.touches[0].clientX));
+    e.preventDefault();
+  }
+
+  container.addEventListener('mousedown', function (e) {
+    dragging = true;
+    rect = container.getBoundingClientRect();
+    move(getPct(e.clientX));
+    e.preventDefault();
+  });
+  window.addEventListener('mousemove', function (e) { if (dragging) move(getPct(e.clientX)); });
+  window.addEventListener('mouseup', stopDrag);
+
+  container.addEventListener('touchstart', function (e) {
+    dragging = true;
+    rect = container.getBoundingClientRect();
+    move(getPct(e.touches[0].clientX));
+    e.preventDefault();
+    window.addEventListener('touchmove', onTouchMove, { passive: false });
+  }, { passive: false });
+  window.addEventListener('touchend', stopDrag);
+  window.addEventListener('touchcancel', stopDrag);
+})();
+
+/* ── CART ───────────────────────────────────── */
+(function () {
+  var KEYS   = ['chaise', 'fauteuil', 'tapis', 'canape'];
+  var PRICES = { chaise: 15, fauteuil: 25, tapis: 40, canape: 50 };
+  var cart   = { chaise: 0, fauteuil: 0, tapis: 0, canape: 0 };
+
+  var countEls = [document.getElementById('count-cta-desktop'), document.getElementById('count-cta-mobile')];
+  var ctaEls   = document.querySelectorAll('.nav-cta');
+
+  function total() {
+    return KEYS.reduce(function (s, k) { return s + cart[k]; }, 0);
+  }
+
+  function bump() {
+    ctaEls.forEach(function (el) {
+      el.classList.remove('cta-bump');
+      void el.offsetWidth;
+      el.classList.add('cta-bump');
+    });
+  }
+
+  function syncBadge() {
+    var n = total();
+    countEls.forEach(function (el) {
+      if (!el) return;
+      var prev = el.textContent;
+      el.textContent = n > 0 ? n : '';
+      /* pop only when count changes interactively, not on initial page load */
+      if (n > 0 && prev !== '' && prev !== String(n)) {
+        el.classList.remove('pop');
+        void el.offsetWidth;
+        el.classList.add('pop');
+      }
+    });
+    ctaEls.forEach(function (el) {
+      el.classList.toggle('has-cart', n > 0);
+    });
+  }
+
+  function syncCard(item) {
+    var btn   = document.querySelector('[onclick="addToCart(\'' + item + '\')"]');
+    var qty   = document.getElementById('qty-' + item);
+    var count = document.getElementById('count-' + item);
+    if (cart[item] === 0) {
+      btn.style.display = '';
+      qty.style.display = 'none';
+    } else {
+      btn.style.display = 'none';
+      qty.style.display = 'flex';
+      count.textContent = cart[item];
+    }
+  }
+
+  function save() {
+    try { localStorage.setItem('ps-cart', JSON.stringify(cart)); } catch (e) {}
+  }
+
+  window.addToCart = function (item) {
+    cart[item] = 1;
+    save();
+    bump();
+    syncBadge();
+
+    /* ripple + flash on the button */
+    var btn = document.querySelector('[onclick="addToCart(\'' + item + '\')"]');
+    var ripple = document.createElement('span');
+    ripple.className = 'btn-ripple';
+    btn.appendChild(ripple);
+    btn.classList.add('flashing');
+    ripple.addEventListener('animationend', function () { ripple.remove(); });
+    btn.addEventListener('animationend', function handler() {
+      btn.classList.remove('flashing');
+      btn.removeEventListener('animationend', handler);
+    });
+
+    /* swap to qty controls after the ripple plays out */
+    setTimeout(function () { syncCard(item); }, 360);
+  };
+
+  window.changeQty = function (item, delta) {
+    cart[item] = Math.max(0, cart[item] + delta);
+    syncCard(item);
+    if (delta > 0) bump();
+    syncBadge();
+    save();
+  };
+
+  /* Restore from localStorage on load */
+  try {
+    var saved = JSON.parse(localStorage.getItem('ps-cart') || '{}');
+    KEYS.forEach(function (k) {
+      if (+saved[k] > 0) { cart[k] = +saved[k]; syncCard(k); }
+    });
+    syncBadge();
+  } catch (e) {}
+
+  /* Pass cart via URL when navigating to the booking page */
+  document.querySelectorAll('a[href="booking-nl.html"]').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      save();
+      window.location.href = 'booking-nl.html?cart=' + encodeURIComponent(JSON.stringify(cart));
+    });
+  });
+})();
+
+/* ── SCROLL REVEAL + PARALLAX ─────────────── */
+(function () {
+  /* Reveal on scroll */
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target); /* fire once */
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach(function (el) {
+    observer.observe(el);
+  });
+
+  /* Parallax on service images */
+  var parallaxImgs = Array.prototype.slice.call(
+    document.querySelectorAll('.service-photo-img img')
+  );
+
+  function runParallax() {
+    var vh = window.innerHeight;
+    parallaxImgs.forEach(function (img) {
+      var rect = img.parentElement.getBoundingClientRect();
+      /* offset = how far the card center is from viewport center, scaled */
+      var offset = ((rect.top + rect.height / 2) - vh / 2) * 0.06;
+      img.style.transform = 'translateY(' + offset.toFixed(1) + 'px) scale(1.12)';
+    });
+  }
+
+  window.addEventListener('scroll', runParallax, { passive: true });
+  window.addEventListener('resize', runParallax, { passive: true });
+  runParallax();
+})();
+</script>
+</body>
+</html>
