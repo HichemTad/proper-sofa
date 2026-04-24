@@ -774,11 +774,32 @@
       font-size: .85rem;
     }
 
+    /* ── NAV MOBILE LANG ─────────────────────────── */
+    .nav-mobile-lang {
+      display: flex;
+      gap: 1.25rem;
+      border-top: 1px solid var(--surface-container);
+      padding-top: 1.25rem;
+      width: 100%;
+      justify-content: center;
+    }
+    .nav-mobile-lang a {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--on-primary-container);
+      text-decoration: none;
+      opacity: .7;
+      transition: opacity .2s;
+    }
+    .nav-mobile-lang a.active,
+    .nav-mobile-lang a:hover { opacity: 1; }
+
     /* ── RESPONSIVE ───────────────────────────────── */
     @media (max-width: 768px) {
-      .nav-links          { display: none; }
-      .nav-right .nav-cta { display: none; }
-      .nav-burger         { display: flex; }
+      .nav-links                { display: none; }
+      .nav-right .lang-switcher { display: none; }
+      .nav-burger               { display: flex; }
+      .nav-right .nav-cta       { padding: 7px 12px; font-size: .8rem; gap: 6px; }
       .service-photo-card.offset,
       .service-photo-card.offset.visible { transform: translateY(0); }
       .services-photos { padding-bottom: 0; }
@@ -851,6 +872,10 @@
     </span>
     Réserver
   </a>
+  <div class="nav-mobile-lang">
+    <a class="active" href="index.html">🇫🇷 Français</a>
+    <a href="index-nl.html">🇳🇱 Nederlands</a>
+  </div>
 </div>
 
 <!-- MAIN CONTENT -->
