@@ -414,11 +414,25 @@
       transition: border-color .15s, color .15s, background .15s;
       text-align: center;
     }
-    .slot-btn:hover { border-color: var(--primary); color: var(--primary); }
+    .slot-btn:hover:not(.booked) { border-color: var(--primary); color: var(--primary); }
     .slot-btn.selected {
       border-color: var(--primary);
       background: var(--primary-container);
       color: var(--on-primary-container);
+    }
+    .slot-btn.booked {
+      opacity: .45;
+      cursor: not-allowed;
+      pointer-events: none;
+      border-style: dashed;
+    }
+    .slot-btn.booked::after {
+      content: 'Gereserveerd';
+      display: block;
+      font-size: .68rem;
+      font-weight: 500;
+      margin-top: 2px;
+      letter-spacing: .03em;
     }
 
     /* ── STEP 3 – FORM ───────────────────────────── */
@@ -1071,16 +1085,49 @@ function nextMonth() {
   renderCalendar(y, m);
 }
 
+var HEURE_TO_SLOT = {
+  '08': '8h \u2013 10h',
+  '10': '10h \u2013 12h',
+  '14': '14h \u2013 16h',
+  '16': '16h \u2013 18h'
+};
+
 function selectDate(year, month, day) {
   selectedDate = new Date(year, month, day);
+  selectedSlot = null;
   renderCalendar(year, month);
   var display = document.getElementById('date-display');
   display.textContent = DOW_LONG[selectedDate.getDay()] + ' ' + day + ' ' + MONTH_NAMES[month] + ' ' + year;
   display.classList.add('visible');
+
+  document.querySelectorAll('.slot-btn').forEach(function(b) {
+    b.classList.remove('selected', 'booked');
+    b.setAttribute('aria-pressed', 'false');
+  });
+
+  var dateStr = year + '-' + String(month + 1).padStart(2, '0') + '-' + String(day).padStart(2, '0');
+  fetch('https://xiyfxsoiaclvdkphqpty.supabase.co/rest/v1/reservations?select=heure&date=eq.' + dateStr, {
+    headers: {
+      'apikey':        'sb_publishable_vcwJFD2FUaqfjf9IQVr7cw_pG-9Cggz',
+      'Authorization': 'Bearer sb_publishable_vcwJFD2FUaqfjf9IQVr7cw_pG-9Cggz'
+    }
+  })
+  .then(function(res) { return res.json(); })
+  .then(function(rows) {
+    rows.forEach(function(r) {
+      if (!r.heure) return;
+      var slotLabel = HEURE_TO_SLOT[r.heure.slice(0, 2)];
+      if (!slotLabel) return;
+      var btn = document.querySelector('.slot-btn[data-slot="' + slotLabel + '"]');
+      if (btn) btn.classList.add('booked');
+    });
+  })
+  .catch(function() {});
 }
 
 /* ── Slots ──────────────────────────────────────────── */
 function selectSlot(btn) {
+  if (btn.classList.contains('booked')) return;
   selectedSlot = btn.dataset.slot;
   document.querySelectorAll('.slot-btn').forEach(function (b) {
     b.classList.toggle('selected', b === btn);
