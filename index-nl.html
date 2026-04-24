@@ -11,6 +11,11 @@
   <meta property="og:title"       content="Proper Sofa – Meubelreiniging in Brussel">
   <meta property="og:description" content="Professionele reiniging van uw meubelstoffering in Brussel en heel België. Gespecialiseerde technici, ecologische producten, gegarandeerde resultaten.">
   <meta name="twitter:card"       content="summary_large_image">
+  <meta property="og:locale"           content="nl_BE">
+  <meta property="og:locale:alternate" content="fr_BE">
+  <link rel="alternate" hreflang="nl"       href="https://propersofa.be/nl/">
+  <link rel="alternate" hreflang="fr"       href="https://propersofa.be/">
+  <link rel="alternate" hreflang="x-default" href="https://propersofa.be/">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -33,6 +38,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,500;0,600;0,700;1,700&family=Roboto:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
@@ -442,9 +448,8 @@
       flex: 1;
       min-width: 240px;
       max-width: 332px;
+      transition: transform .4s cubic-bezier(.22,1,.36,1);
     }
-
-    /* .offset vertical position now handled by transform for smooth hover */
 
     .service-photo-img {
       width: 100%;
@@ -472,14 +477,9 @@
     }
 
     /* ── QUINCONCE + REVEAL ──────────────────── */
-    .service-photo-card {
-      transition: transform .4s cubic-bezier(.22,1,.36,1);
-    }
-    /* Carte du milieu : décalée de 114px + 36px pour que le reveal parte du bon point */
+    /* Middle card starts 150px down; lands at 114px once revealed (36px = reveal translateY offset) */
     .service-photo-card.offset { transform: translateY(150px); }
-    /* Une fois le reveal terminé, on atterrit à la position quinconce */
     .service-photo-card.offset.visible { transform: translateY(114px); }
-    /* Padding bas pour que la carte décalée ne soit pas rognée */
     .services-photos { padding-bottom: 130px; }
 
     /* ── HERO ENTRANCE ───────────────────────── */
@@ -736,11 +736,19 @@
       overflow: hidden;
     }
 
-    .map-circle img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    .map-tooltip {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 4px 10px;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: .8rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,.25);
+      white-space: nowrap;
     }
+    .map-tooltip::before { display: none; }
 
 
     /* ── FOOTER ───────────────────────────────────── */
@@ -784,7 +792,7 @@
 <!-- NAV -->
 <nav aria-label="Hoofdnavigatie">
   <a href="index-nl.html" class="nav-logo" aria-label="Proper Sofa – Startpagina">
-    <img src="asset/LOGO.svg" alt="Proper Sofa" width="auto" height="44">
+    <img src="asset/LOGO.svg" alt="Proper Sofa" height="44">
   </a>
 
   <ul class="nav-links" role="list">
@@ -1033,9 +1041,7 @@
   </div>
 
   <div class="map-container reveal reveal-d1">
-    <div class="map-circle">
-      <img src="https://www.figma.com/api/mcp/asset/664002a4-0576-46ed-96fa-2982911e16f9" alt="Kaart België – Brussel" loading="lazy">
-    </div>
+    <div class="map-circle" id="map-brussels" role="img" aria-label="Kaart gecentreerd op Brussel, België"></div>
   </div>
 </section>
 
@@ -1151,9 +1157,8 @@
 
 /* ── CART ───────────────────────────────────── */
 (function () {
-  var KEYS   = ['chaise', 'fauteuil', 'tapis', 'canape'];
-  var PRICES = { chaise: 15, fauteuil: 25, tapis: 40, canape: 50 };
-  var cart   = { chaise: 0, fauteuil: 0, tapis: 0, canape: 0 };
+  var KEYS = ['chaise', 'fauteuil', 'tapis', 'canape'];
+  var cart = { chaise: 0, fauteuil: 0, tapis: 0, canape: 0 };
 
   var countEls = [document.getElementById('count-cta-desktop'), document.getElementById('count-cta-mobile')];
   var ctaEls   = document.querySelectorAll('.nav-cta');
@@ -1212,7 +1217,6 @@
     bump();
     syncBadge();
 
-    /* ripple + flash on the button */
     var btn = document.querySelector('[onclick="addToCart(\'' + item + '\')"]');
     var ripple = document.createElement('span');
     ripple.className = 'btn-ripple';
@@ -1236,7 +1240,6 @@
     save();
   };
 
-  /* Restore from localStorage on load */
   try {
     var saved = JSON.parse(localStorage.getItem('ps-cart') || '{}');
     KEYS.forEach(function (k) {
@@ -1245,7 +1248,6 @@
     syncBadge();
   } catch (e) {}
 
-  /* Pass cart via URL when navigating to the booking page */
   document.querySelectorAll('a[href="booking-nl.html"]').forEach(function (link) {
     link.addEventListener('click', function (e) {
       e.preventDefault();
@@ -1262,7 +1264,7 @@
     entries.forEach(function (e) {
       if (e.isIntersecting) {
         e.target.classList.add('visible');
-        observer.unobserve(e.target); /* fire once */
+        observer.unobserve(e.target);
       }
     });
   }, { threshold: 0.12 });
@@ -1289,6 +1291,38 @@
   window.addEventListener('scroll', runParallax, { passive: true });
   window.addEventListener('resize', runParallax, { passive: true });
   runParallax();
+})();
+</script>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script>
+(function () {
+  var map = L.map('map-brussels', {
+    center: [50.8503, 4.3517],
+    zoom: 8,
+    zoomControl: false,
+    attributionControl: false,
+    dragging: false,
+    scrollWheelZoom: false,
+    doubleClickZoom: false,
+    touchZoom: false,
+    keyboard: false
+  });
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19
+  }).addTo(map);
+  L.circleMarker([50.8503, 4.3517], {
+    radius: 9,
+    color: '#ffffff',
+    weight: 3,
+    fillColor: '#485d92',
+    fillOpacity: 1
+  }).addTo(map).bindTooltip('Brussel', {
+    permanent: true,
+    direction: 'top',
+    offset: [0, -12],
+    className: 'map-tooltip'
+  }).openTooltip();
 })();
 </script>
 </body>
