@@ -1293,9 +1293,12 @@ function submitBooking() {
       nom:         contactData.prenom + ' ' + contactData.nom,
       email:       contactData.email,
       telephone:   contactData.tel,
+      adresse:     contactData.adresse + ', ' + contactData.cp + ' ' + contactData.ville,
       statut:      'en_attente'
     })
-  }).catch(function() {});
+  }).then(function(res) {
+    if (!res.ok) res.text().then(function(t) { console.error('[Supabase]', res.status, t); });
+  }).catch(function(e) { console.error('[Supabase]', e); });
 
   document.querySelectorAll('.step-panel').forEach(function (p) { p.classList.remove('active'); });
   document.getElementById('panel-success').classList.add('active');

@@ -1276,6 +1276,19 @@ function submitBooking() {
     String(selectedDate.getDate()).padStart(2, '0');
 
   // Send to Supabase (fire-and-forget — UX is unaffected if this fails)
+  var payload = {
+    reference:   ref,
+    date:        dateStr,
+    heure:       heure,
+    type_meuble: typeMeuble,
+    nom:         contactData.prenom + ' ' + contactData.nom,
+    email:       contactData.email,
+    telephone:   contactData.tel,
+    adresse:     contactData.adresse + ', ' + contactData.cp + ' ' + contactData.ville,
+    statut:      'en_attente'
+  };
+  console.log('[Supabase] payload →', JSON.stringify(payload));
+
   fetch('https://xiyfxsoiaclvdkphqpty.supabase.co/rest/v1/reservations', {
     method: 'POST',
     headers: {
@@ -1284,17 +1297,10 @@ function submitBooking() {
       'Authorization': 'Bearer sb_publishable_vcwJFD2FUaqfjf9IQVr7cw_pG-9Cggz',
       'Prefer': 'return=minimal'
     },
-    body: JSON.stringify({
-      reference:   ref,
-      date:        dateStr,
-      heure:       heure,
-      type_meuble: typeMeuble,
-      nom:         contactData.prenom + ' ' + contactData.nom,
-      email:       contactData.email,
-      telephone:   contactData.tel,
-      statut:      'en_attente'
-    })
-  }).catch(function() {});
+    body: JSON.stringify(payload)
+  }).then(function(res) {
+    if (!res.ok) res.text().then(function(t) { console.error('[Supabase]', res.status, t); });
+  }).catch(function(e) { console.error('[Supabase]', e); });
 
   document.querySelectorAll('.step-panel').forEach(function (p) { p.classList.remove('active'); });
   document.getElementById('panel-success').classList.add('active');
