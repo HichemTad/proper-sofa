@@ -410,8 +410,8 @@ nav {
   font-weight: 600;
   letter-spacing: .04em;
   text-transform: uppercase;
-  color: var(--error, #ba1a1a);
-  opacity: .8;
+  color: var(--on-surface-variant, #44464f);
+  opacity: .7;
 }
 
 /* ── STEP 3 – FORM ───────────────────────────── */
