@@ -410,7 +410,7 @@ function buildConfirmationHtml(opts: {
   const employeeBlock = employee_name ? `
   <!-- EMPLOYEE -->
   <tr>
-    <td style="padding:0 32px 32px;">
+    <td class="td-block" style="padding:0 32px 24px;">
       <div style="background:#f0faf5;border-radius:12px;padding:24px 28px;border:1px solid #b7dfc9;">
         <p style="margin:0 0 14px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#2e6b50;font-family:Roboto,Arial,sans-serif;">${t.employeeTitle}</p>
         <table width="100%" cellpadding="0" cellspacing="0" border="0">
