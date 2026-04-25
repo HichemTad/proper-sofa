@@ -329,11 +329,15 @@ function buildDemandeHtml(opts: {
       <p style="margin:0 0 14px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#585e71;font-family:Roboto,Arial,sans-serif;">${t.nextTitle}</p>
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td width="28" valign="top" style="padding:5px 0;color:#485d92;font-size:16px;font-weight:700;">✓</td>
+          <td width="32" valign="top" style="padding:4px 0;">
+            <img src="https://propersofa.be/asset/check-email.png" alt="✓" width="24" height="24" style="display:block;">
+          </td>
           <td style="padding:5px 0;font-size:14px;color:#44464f;line-height:1.6;font-family:Roboto,Arial,sans-serif;">${t.next1}</td>
         </tr>
         <tr>
-          <td width="28" valign="top" style="padding:5px 0;color:#485d92;font-size:16px;font-weight:700;">✓</td>
+          <td width="32" valign="top" style="padding:4px 0;">
+            <img src="https://propersofa.be/asset/check-email.png" alt="✓" width="24" height="24" style="display:block;">
+          </td>
           <td style="padding:5px 0;font-size:14px;color:#44464f;line-height:1.6;font-family:Roboto,Arial,sans-serif;">${t.next2}</td>
         </tr>
       </table>
@@ -471,6 +475,8 @@ function buildConfirmationHtml(opts: {
   <!-- INTRO -->
   <tr>
     <td class="td-intro" style="padding:32px 40px 28px;">
+      <img src="https://propersofa.be/asset/check-email.png" alt="✓" width="36" height="36"
+           style="display:block;margin:0 0 14px;">
       <h1 style="margin:0 0 14px;font-size:22px;color:#181c20;font-weight:500;line-height:1.3;font-family:'Fira Sans',Arial,sans-serif;">${t.title}</h1>
       <p style="margin:0;font-size:15px;color:#44464f;line-height:1.7;font-family:Roboto,Arial,sans-serif;">${t.intro}</p>
     </td>
