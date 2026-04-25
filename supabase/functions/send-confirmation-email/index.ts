@@ -219,7 +219,6 @@ function buildEmailHtml(opts: {
         <td style="background:#485d92;padding:28px 40px;text-align:center;">
           <img src="https://propersofa.be/asset/LOGO-email.png" alt="Proper Sofa" width="220" height="72"
                style="display:block;margin:0 auto;max-width:220px;height:auto;">
-          <span style="display:block;color:rgba(255,255,255,0.75);font-family:Roboto,Arial,sans-serif;font-size:11px;font-weight:500;letter-spacing:3px;margin-top:10px;text-transform:uppercase;">${t.tagline}</span>
         </td>
       </tr>
 
