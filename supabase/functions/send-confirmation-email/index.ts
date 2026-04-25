@@ -382,7 +382,7 @@ function buildConfirmationHtml(opts: {
   const prenom = nom.split(" ")[0];
 
   const t = isNL ? {
-    title:         "Uw reservering is bevestigd ✓",
+    title:         "Uw reservering is bevestigd",
     intro:         `Goed nieuws, <strong>${prenom}</strong>!<br>Uw reservering is bevestigd. Hieronder vindt u de details van de afspraak.`,
     refLabel:      "Referentie",
     detailsTitle:  "Afspraak",
@@ -394,7 +394,7 @@ function buildConfirmationHtml(opts: {
     greeting:      "Tot snel,<br><strong>Het team van Proper Sofa</strong>",
     footer:        "Vragen? Antwoord gerust op deze e-mail.",
   } : {
-    title:         "Votre réservation est confirmée ✓",
+    title:         "Votre réservation est confirmée",
     intro:         `Bonne nouvelle, <strong>${prenom}</strong> !<br>Votre réservation est confirmée. Retrouvez ci-dessous les détails de votre intervention.`,
     refLabel:      "Référence",
     detailsTitle:  "Votre rendez-vous",
@@ -475,9 +475,17 @@ function buildConfirmationHtml(opts: {
   <!-- INTRO -->
   <tr>
     <td class="td-intro" style="padding:32px 40px 28px;">
-      <img src="https://propersofa.be/asset/check-email.png" alt="✓" width="36" height="36"
-           style="display:block;margin:0 0 14px;">
-      <h1 style="margin:0 0 14px;font-size:22px;color:#181c20;font-weight:500;line-height:1.3;font-family:'Fira Sans',Arial,sans-serif;">${t.title}</h1>
+      <table cellpadding="0" cellspacing="0" border="0" style="margin-bottom:14px;">
+        <tr>
+          <td valign="middle" style="padding-right:10px;">
+            <img src="https://propersofa.be/asset/check-email.png" alt="✓" width="32" height="32"
+                 style="display:block;">
+          </td>
+          <td valign="middle">
+            <h1 style="margin:0;font-size:22px;color:#181c20;font-weight:500;line-height:1.3;font-family:'Fira Sans',Arial,sans-serif;">${t.title}</h1>
+          </td>
+        </tr>
+      </table>
       <p style="margin:0;font-size:15px;color:#44464f;line-height:1.7;font-family:Roboto,Arial,sans-serif;">${t.intro}</p>
     </td>
   </tr>
