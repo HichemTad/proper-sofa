@@ -1342,6 +1342,7 @@ function submitBooking() {
       telephone:   contactData.tel,
       adresse:     contactData.adresse + ', ' + contactData.cp + ' ' + contactData.ville,
       prix_total:  cartTotal(),
+      commentaire: contactData.note || null,
       statut:      'en_attente'
     })
   }).then(function(res) {
