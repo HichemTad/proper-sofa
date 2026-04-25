@@ -626,7 +626,23 @@ function submitBooking() {
     String(selectedDate.getMonth() + 1).padStart(2, '0') + '-' +
     String(selectedDate.getDate()).padStart(2, '0');
 
-  // Send to Supabase (fire-and-forget — UX is unaffected if this fails)
+  // Build shared payload
+  var payload = {
+    reference:   ref,
+    date:        dateStr,
+    heure:       heure,
+    type_meuble: typeMeuble,
+    nom:         contactData.prenom + ' ' + contactData.nom,
+    email:       contactData.email,
+    telephone:   contactData.tel,
+    adresse:     contactData.adresse + ', ' + contactData.cp + ' ' + contactData.ville,
+    prix_total:  cartTotal(),
+    commentaire: contactData.note || null,
+    statut:      'en_attente'
+  };
+  console.log('[Supabase] payload →', JSON.stringify(payload));
+
+  // 1) Save to Supabase
   fetch('https://xiyfxsoiaclvdkphqpty.supabase.co/rest/v1/reservations', {
     method: 'POST',
     headers: {
@@ -635,22 +651,23 @@ function submitBooking() {
       'Authorization': 'Bearer sb_publishable_vcwJFD2FUaqfjf9IQVr7cw_pG-9Cggz',
       'Prefer': 'return=minimal'
     },
-    body: JSON.stringify({
-      reference:   ref,
-      date:        dateStr,
-      heure:       heure,
-      type_meuble: typeMeuble,
-      nom:         contactData.prenom + ' ' + contactData.nom,
-      email:       contactData.email,
-      telephone:   contactData.tel,
-      adresse:     contactData.adresse + ', ' + contactData.cp + ' ' + contactData.ville,
-      prix_total:  cartTotal(),
-      commentaire: contactData.note || null,
-      statut:      'en_attente'
-    })
+    body: JSON.stringify(payload)
   }).then(function(res) {
     if (!res.ok) res.text().then(function(t) { console.error('[Supabase]', res.status, t); });
   }).catch(function(e) { console.error('[Supabase]', e); });
+
+  // 2) Send confirmation email via Edge Function
+  fetch('https://xiyfxsoiaclvdkphqpty.supabase.co/functions/v1/send-confirmation-email', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer sb_publishable_vcwJFD2FUaqfjf9IQVr7cw_pG-9Cggz'
+    },
+    body: JSON.stringify(Object.assign({}, payload, { lang: 'nl' }))
+  }).then(function(res) {
+    if (!res.ok) res.text().then(function(t) { console.error('[Email]', res.status, t); });
+    else console.log('[Email] bevestiging verzonden');
+  }).catch(function(e) { console.error('[Email]', e); });
 
   document.querySelectorAll('.step-panel').forEach(function (p) { p.classList.remove('active'); });
   document.getElementById('panel-success').classList.add('active');
