@@ -639,7 +639,8 @@ function submitBooking() {
     adresse:     contactData.adresse + ', ' + contactData.cp + ' ' + contactData.ville,
     prix_total:  cartTotal(),
     commentaire: contactData.note || null,
-    statut:      'en_attente'
+    statut:      'en_attente',
+    lang:        'fr'
   };
   console.log('[Supabase] payload →', JSON.stringify(payload));
 
