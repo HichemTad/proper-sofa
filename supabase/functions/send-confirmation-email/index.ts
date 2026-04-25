@@ -217,8 +217,8 @@ function buildEmailHtml(opts: {
       <!-- ── HEADER ─────────────────────────────── -->
       <tr>
         <td style="background:#485d92;padding:28px 40px;text-align:center;">
-          <img src="https://propersofa.be/asset/LOGO.svg" alt="Proper Sofa" width="160" height="auto"
-               style="display:block;margin:0 auto;max-width:160px;height:auto;filter:brightness(0) invert(1);">
+          <img src="https://propersofa.be/asset/LOGO-white.svg" alt="Proper Sofa" width="160" height="auto"
+               style="display:block;margin:0 auto;max-width:160px;height:auto;">
           <span style="display:block;color:rgba(255,255,255,0.75);font-family:Roboto,Arial,sans-serif;font-size:11px;font-weight:500;letter-spacing:3px;margin-top:10px;text-transform:uppercase;">${t.tagline}</span>
         </td>
       </tr>
