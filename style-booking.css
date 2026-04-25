@@ -394,10 +394,24 @@ nav {
   color: var(--on-primary-container);
 }
 .slot-btn.booked {
-  opacity: .45;
+  opacity: .5;
   cursor: not-allowed;
   pointer-events: none;
   border-style: dashed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.slot-btn.booked::after {
+  content: "Réservé";
+  display: block;
+  font-size: 0.68em;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--error, #ba1a1a);
+  opacity: .8;
 }
 
 /* ── STEP 3 – FORM ───────────────────────────── */
