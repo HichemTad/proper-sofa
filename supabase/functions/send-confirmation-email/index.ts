@@ -422,8 +422,7 @@ function buildConfirmationHtml(opts: {
             </td>
             <td valign="middle">
               <p style="margin:0 0 4px;font-size:16px;font-weight:700;color:#181c20;font-family:'Fira Sans',Arial,sans-serif;">${employee_name}</p>
-              <p style="margin:0;font-size:13px;color:#44464f;line-height:1.5;font-family:Roboto,Arial,sans-serif;">${t.employeeLine(employee_name)}</p>
-              ${employee_phone ? `<p style="margin:6px 0 0;font-size:14px;font-weight:600;color:#2e6b50;font-family:Roboto,Arial,sans-serif;">&#128222;&nbsp;${employee_phone}</p>` : ""}
+              ${employee_phone ? `<p style="margin:0;font-size:14px;font-weight:600;color:#2e6b50;font-family:Roboto,Arial,sans-serif;">&#128222;&nbsp;${employee_phone}</p>` : ""}
             </td>
           </tr>
         </table>
