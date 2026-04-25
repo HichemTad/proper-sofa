@@ -207,8 +207,7 @@ function buildEmailHtml(opts: {
 <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,500;0,700;1,700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   @media only screen and (max-width: 480px) {
-    .email-outer  { padding: 0 !important; }
-    .email-card   { border-radius: 0 !important; }
+    .email-outer  { padding: 16px 0 !important; }
     .td-header    { padding: 20px 16px !important; }
     .td-ref       { padding: 10px 16px !important; }
     .td-intro     { padding: 20px 16px 14px !important; }
