@@ -190,8 +190,8 @@ function buildEmailHtml(opts: {
   const commentBlock = commentaire ? `
       <!-- COMMENT -->
       <tr>
-        <td style="padding:0 32px 24px;">
-          <div style="border-left:3px solid #485d92;padding:14px 18px;background:#dae2ff;border-radius:0 8px 8px 0;">
+        <td class="td-block" style="padding:0 32px 24px;">
+          <div class="td-block-inner" style="border-left:3px solid #485d92;padding:14px 18px;background:#dae2ff;border-radius:0 8px 8px 0;">
             <p style="margin:0 0 6px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#2f4578;font-family:Roboto,Arial,sans-serif;">${t.commentLabel}</p>
             <p style="margin:0;font-size:14px;color:#44464f;font-style:italic;line-height:1.6;font-family:Roboto,Arial,sans-serif;">${commentaire}</p>
           </div>
@@ -205,26 +205,41 @@ function buildEmailHtml(opts: {
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>${t.title}</title>
 <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,500;0,700;1,700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  @media only screen and (max-width: 480px) {
+    .email-outer  { padding: 0 !important; }
+    .email-card   { border-radius: 0 !important; }
+    .td-header    { padding: 20px 16px !important; }
+    .td-ref       { padding: 10px 16px !important; }
+    .td-intro     { padding: 20px 16px 14px !important; }
+    .td-block     { padding: 0 8px 16px !important; }
+    .td-block-inner { padding: 16px 14px !important; }
+    .td-steps     { padding: 0 16px 24px !important; }
+    .td-footer    { padding: 20px 16px !important; }
+    .td-comment   { padding: 0 8px 16px !important; }
+    .logo-img     { max-width: 180px !important; width: 180px !important; }
+  }
+</style>
 </head>
 <body style="margin:0;padding:0;background-color:#f7f9ff;font-family:Roboto,Arial,sans-serif;">
 
-<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f7f9ff;padding:32px 16px;">
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="email-outer" style="background-color:#f7f9ff;padding:32px 16px;">
   <tr><td align="center">
 
-    <table width="600" cellpadding="0" cellspacing="0" border="0"
+    <table width="600" cellpadding="0" cellspacing="0" border="0" class="email-card"
            style="max-width:600px;width:100%;background:#ffffff;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(72,93,146,0.12);">
 
       <!-- ── HEADER ─────────────────────────────── -->
       <tr>
-        <td style="background:#485d92;padding:28px 40px;text-align:center;">
-          <img src="https://propersofa.be/asset/LOGO-email.png" alt="Proper Sofa" width="220" height="72"
+        <td class="td-header" style="background:#485d92;padding:28px 40px;text-align:center;">
+          <img src="https://propersofa.be/asset/LOGO-email.png" alt="Proper Sofa" width="220" height="72" class="logo-img"
                style="display:block;margin:0 auto;max-width:220px;height:auto;">
         </td>
       </tr>
 
       <!-- ── REFERENCE BADGE ────────────────────── -->
       <tr>
-        <td style="background:#ebeef3;padding:12px 40px;border-bottom:1px solid #e1e2ec;">
+        <td class="td-ref" style="background:#ebeef3;padding:12px 40px;border-bottom:1px solid #e1e2ec;">
           <span style="font-size:12px;color:#585e71;font-family:Roboto,Arial,sans-serif;text-transform:uppercase;letter-spacing:1px;">${t.refLabel}&nbsp;&nbsp;</span>
           <span style="display:inline-block;background:#485d92;color:#fff;font-family:Roboto,Arial,sans-serif;font-size:12px;font-weight:700;padding:4px 14px;border-radius:20px;letter-spacing:1px;">${reference}</span>
         </td>
@@ -232,7 +247,7 @@ function buildEmailHtml(opts: {
 
       <!-- ── INTRO ──────────────────────────────── -->
       <tr>
-        <td style="padding:32px 40px 24px;">
+        <td class="td-intro" style="padding:32px 40px 24px;">
           <h1 style="margin:0 0 14px;font-size:22px;color:#181c20;font-weight:500;line-height:1.3;font-family:'Fira Sans',Arial,sans-serif;">${t.title}</h1>
           <p style="margin:0;font-size:15px;color:#44464f;line-height:1.7;font-family:Roboto,Arial,sans-serif;">${t.intro}</p>
         </td>
@@ -240,8 +255,8 @@ function buildEmailHtml(opts: {
 
       <!-- ── DETAILS BLOCK ──────────────────────── -->
       <tr>
-        <td style="padding:0 32px 24px;">
-          <div style="background:#f1f4f9;border-radius:12px;padding:24px 28px;border:1px solid #e1e2ec;">
+        <td class="td-block" style="padding:0 32px 24px;">
+          <div class="td-block-inner" style="background:#f1f4f9;border-radius:12px;padding:24px 28px;border:1px solid #e1e2ec;">
             <p style="margin:0 0 16px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#485d92;font-family:Roboto,Arial,sans-serif;">${t.detailsTitle}</p>
             <table width="100%" cellpadding="0" cellspacing="0" border="0">
               <tr>
@@ -273,8 +288,8 @@ function buildEmailHtml(opts: {
 
       <!-- ── CONTACT BLOCK ──────────────────────── -->
       <tr>
-        <td style="padding:0 32px 24px;">
-          <div style="background:#f1f4f9;border-radius:12px;padding:24px 28px;border:1px solid #e1e2ec;">
+        <td class="td-block" style="padding:0 32px 24px;">
+          <div class="td-block-inner" style="background:#f1f4f9;border-radius:12px;padding:24px 28px;border:1px solid #e1e2ec;">
             <p style="margin:0 0 16px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#485d92;font-family:Roboto,Arial,sans-serif;">${t.contactTitle}</p>
             <table width="100%" cellpadding="0" cellspacing="0" border="0">
               <tr>
@@ -298,7 +313,7 @@ function buildEmailHtml(opts: {
 
       <!-- ── NEXT STEPS ─────────────────────────── -->
       <tr>
-        <td style="padding:0 40px 32px;">
+        <td class="td-steps" style="padding:0 40px 32px;">
           <p style="margin:0 0 14px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#585e71;font-family:Roboto,Arial,sans-serif;">${t.nextTitle}</p>
           <table width="100%" cellpadding="0" cellspacing="0" border="0">
             <tr>
@@ -315,7 +330,7 @@ function buildEmailHtml(opts: {
 
       <!-- ── FOOTER ─────────────────────────────── -->
       <tr>
-        <td style="background:#485d92;padding:28px 40px;text-align:center;border-radius:0 0 16px 16px;">
+        <td class="td-footer" style="background:#485d92;padding:28px 40px;text-align:center;border-radius:0 0 16px 16px;">
           <p style="margin:0 0 8px;font-size:14px;color:rgba(255,255,255,0.9);line-height:1.7;font-family:Roboto,Arial,sans-serif;">${t.greeting}</p>
           <p style="margin:16px 0 0;font-size:12px;color:rgba(255,255,255,0.6);font-family:Roboto,Arial,sans-serif;">${t.footer}</p>
           <p style="margin:10px 0 0;font-size:12px;font-family:Roboto,Arial,sans-serif;">
