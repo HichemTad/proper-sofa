@@ -1,5 +1,12 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 
+// FROM_EMAIL env var: set to "contact@propersofa.be" once domain is verified in Resend.
+// Until then, use "onboarding@resend.dev" for testing.
+const FROM_EMAIL = Deno.env.get("FROM_EMAIL") ?? "onboarding@resend.dev";
+const FROM_NAME  = "Proper Sofa";
+// BCC_EMAIL: copy every confirmation to the business inbox (only when domain is verified)
+const BCC_EMAIL  = Deno.env.get("BCC_EMAIL") ?? null;
+
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers": "Content-Type, Authorization",
@@ -90,9 +97,9 @@ serve(async (req) => {
       "Authorization": `Bearer ${RESEND_KEY}`,
     },
     body: JSON.stringify({
-      from: "Proper Sofa <contact@propersofa.be>",
+      from: `${FROM_NAME} <${FROM_EMAIL}>`,
       to: [String(email)],
-      bcc: ["contact@propersofa.be"],
+      ...(BCC_EMAIL ? { bcc: [BCC_EMAIL] } : {}),
       subject,
       html,
     }),
