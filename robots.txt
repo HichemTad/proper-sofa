@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Pages de réservation — exclues de l'index (noindex déjà dans le HTML)
+Disallow: /reserver-nettoyage/
+Disallow: /nl/reserveren-reiniging/
+
+# Anciennes URLs — redirigées, pas besoin de crawler
+Disallow: /booking.html
+Disallow: /booking-nl.html
+Disallow: /index-nl.html
+
+Sitemap: https://propersofa.be/sitemap.xml
